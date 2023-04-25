@@ -19,7 +19,7 @@ ControlSystem::ControlSystem(double dt)
     // Add blocks to timedomain
     timedomain.addBlock(q1);
     timedomain.addBlock(g);
-    timedomain.addBlock(servo)
+    timedomain.addBlock(servo);
 
     // Add timedomain to executor
     eeros::Executor::instance().add(timedomain);
