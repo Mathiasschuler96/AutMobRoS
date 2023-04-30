@@ -31,8 +31,9 @@ MyRobotSafetyProperties::MyRobotSafetyProperties(ControlSystem &cs, double dt)
     // Declare and add critical outputs
     greenLED = hal.getLogicOutput("onBoardLEDgreen");
     redLED = hal.getLogicOutput("onBoardLEDred");
+    servo1 = hal.getLogicOutput("servo1");
 
-    criticalOutputs = { greenLED, redLED };
+    criticalOutputs = { greenLED, redLED, servo1};
 
     // Declare and add critical inputs
     buttonPause = eeros::hal::HAL::instance().getLogicInput("onBoardButtonPause");
@@ -81,15 +82,15 @@ MyRobotSafetyProperties::MyRobotSafetyProperties(ControlSystem &cs, double dt)
     slSystemMoving.setInputActions({        check(buttonPause, false, emergency),   ignore(buttonMode) });
 
     // Define output actions for all levels
-    slSystemOff.setOutputActions({          set(greenLED, false),   set(redLED, false) });
-    slShuttingDown.setOutputActions({       set(greenLED, false),   set(redLED, true) });
-    slBraking.setOutputActions({            set(greenLED, false),   set(redLED, true) });
-    slStartingUp.setOutputActions({         set(greenLED, true),    set(redLED, false) });
-    slEmergency.setOutputActions({          set(greenLED, true),    set(redLED, true) });
-    slEmergencyBraking.setOutputActions({   set(greenLED, true),    set(redLED, true) });
-    slSystemOn.setOutputActions({           set(greenLED, true),    set(redLED, false) });
-    slMotorPowerOn.setOutputActions({       set(greenLED, true),    set(redLED, false) });
-    slSystemMoving.setOutputActions({       set(greenLED, true),    set(redLED, false) });
+    slSystemOff.setOutputActions({          set(greenLED, false),   set(redLED, false)});
+    slShuttingDown.setOutputActions({       set(greenLED, false),   set(redLED, true)});
+    slBraking.setOutputActions({            set(greenLED, false),   set(redLED, true)});
+    slStartingUp.setOutputActions({         set(greenLED, true),    set(redLED, false)});
+    slEmergency.setOutputActions({          set(greenLED, true),    set(redLED, true)});
+    slEmergencyBraking.setOutputActions({   set(greenLED, true),    set(redLED, true)});
+    slSystemOn.setOutputActions({           set(greenLED, true),    set(redLED, false)});
+    slMotorPowerOn.setOutputActions({       set(greenLED, true),    set(redLED, false)});
+    slSystemMoving.setOutputActions({       set(greenLED, true),    set(redLED, false)});
 
     // Define and add level actions
     slSystemOff.setLevelAction([&](SafetyContext *privateContext) {
