@@ -39,7 +39,6 @@ private:
     // Define all critical outputs
     eeros::hal::Output<bool>* greenLED;
     eeros::hal::Output<bool>* redLED;
-    eeros::hal::Output<bool>* servo1;
 
     // Define all critical inputs
     eeros::hal::Input<bool>* buttonPause;
