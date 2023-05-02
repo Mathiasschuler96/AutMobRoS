@@ -29,7 +29,8 @@ public:
         while (eeros::sequencer::Sequencer::running)
         {
             sleep(1.0);
-            log.info() << cs.myGain.getOut().getSignal();
+            log.info() << "E1: " << cs.E1.getOut().getSignal();
+            log.info() << "E2: " << cs.E2.getOut().getSignal();
         }
         return 0;
     }

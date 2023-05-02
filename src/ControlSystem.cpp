@@ -1,23 +1,22 @@
 #include "ControlSystem.hpp"
 
 ControlSystem::ControlSystem(double dt)
-    : myConstant(1.0), myGain(2.0),
+    : E1("enc1"), E2("enc2"),
       timedomain("Main time domain", dt, true)
 {
     // Name all blocks
-    myConstant.setName("My constant");
-    myGain.setName("My gain");
+    E1.setName("E1");
+    E2.setName("E2");
 
     // Name all signals
-    myConstant.getOut().getSignal().setName("My constant value");
-    myGain.getOut().getSignal().setName("My constant value multiplied with my gain");
+    E1.getOut().getSignal().setName("q1 [rad]");
+    E2.getOut().getSignal().setName("q2 [rad]");
 
     // Connect signals
-    myGain.getIn().connect(myConstant.getOut());
 
     // Add blocks to timedomain
-    timedomain.addBlock(myConstant);
-    timedomain.addBlock(myGain);
+    timedomain.addBlock(E1);
+    timedomain.addBlock(E2);
 
     // Add timedomain to executor
     eeros::Executor::instance().add(timedomain);
