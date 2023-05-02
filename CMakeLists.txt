@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(MotEncEx2)   # MODIFY Project name
+project(MotEncEx3)   # MODIFY Project name
 
 set(CMAKE_CXX_STANDARD 14)
 
