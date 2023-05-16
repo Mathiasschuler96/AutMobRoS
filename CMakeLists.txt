@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(PDPosContr)   # MODIFY Project name
+project(FullServoInterface)   # MODIFY Project name
 
 set(CMAKE_CXX_STANDARD 14)
 
