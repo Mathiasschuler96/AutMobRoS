@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.1)
-project(PIVelContr)   # MODIFY Project name
+project(PathPlanner)   # MODIFY Project name
 
 set(CMAKE_CXX_STANDARD 14)
 
